@@ -5,6 +5,25 @@
 
 ---
 
+## 游戏内效果图
+
+### 1. 3D 厨房首页与三档难度入口
+![首页 3D 厨房与难度入口](./docs/screenshots/01-title.png)
+
+### 2. 今日菜单与多维度玩法预览
+![今日菜单选菜界面](./docs/screenshots/02-recipes.png)
+
+### 3. 无遮挡刀工切菜 · 金色完美切线
+![切菜备料实战画面](./docs/screenshots/03-chopping.png)
+
+### 4. 双手联动掌勺控火 · 分步计时与油温监测
+![掌勺控火与双手联动画面](./docs/screenshots/04-cooking.png)
+
+### 5. 中华烹饪百科 · 真实家常食谱与食材搭配
+![中华烹饪百科抽屉](./docs/screenshots/05-encyclopedia.png)
+
+---
+
 ## 核心特色
 
 - **沉浸式 3D 中式厨房场景**
@@ -69,14 +88,23 @@
 
 ## 操作说明
 
-- **切菜阶段**：
-  - 点击画布任意区域或按 `空格键` 落刀，尽量对准食材表面的金色虚线获取「完美」评价。
+- **切菜阶段**：点击画布任意区域或按 `Space` 落刀，尽量对准食材表面的金色虚线获取「完美」评价。
 - **掌勺阶段**：
-  - 点击底部燃气灶火候按钮切换 **文火 / 中火 / 旺火**（联动 3D 旋钮与火焰强度）。
-  - 按顶部步骤提示依次点击对应调料投入铁锅。
-  - 点击 **「颠勺」** 按钮（或按 `空格键`）触发 3D 双手抛锅翻炒，降温并均匀裹汁。
-- **进度保存**：
-  - 玩家的难度偏好、各菜谱历史最高分、星级评价、五秒狂切最高记录及百科收藏条目均自动保存在浏览器 `localStorage` 中。
+  - 点击底部火候按钮或按数字键 `0`–`3` 切换 **关火 / 文火 / 中火 / 旺火**（联动 3D 旋钮与火焰）。
+  - 按顶部指引栏依次点击对应调料投入铁锅。
+  - 点击 **「颠勺翻炒」** 或按 `Space` 触发 3D 双手抛锅，降温并均匀裹汁。
+- **本地存档**：难度偏好、菜谱最佳分数与星级、五秒狂切最高记录及百科收藏条目均自动保存在浏览器 `localStorage` 中。
+
+---
+
+## GitHub Pages 自动部署指南
+
+本项目已内置 **GitHub Actions 自动构建部署工作流**（`.github/workflows/deploy.yml`），并已配置相对路径构建（`base: './'`），开箱即支持子路径访问：
+
+1. 将本项目代码推送（或通过导出/同步）至你的 GitHub 仓库的 `main` 或 `master` 分支。
+2. 打开该 GitHub 仓库页面，依次进入 **Settings → Pages**。
+3. 在 **Build and deployment → Source** 中选择 **GitHub Actions**。
+4. 每次推送到 `main` / `master` 分支（或在 **Actions → Deploy to GitHub Pages** 手动点击 **Run workflow**）后，GitHub 将自动执行类型检查、构建并发布上线，完成后即可通过 `https://<你的用户名>.github.io/<仓库名>/` 在线游玩。
 
 ---
 
@@ -84,16 +112,18 @@
 
 ### 技术栈
 - **前端框架**：React 19 + TypeScript + Vite
-- **样式方案**：Tailwind CSS v4（暖白象牙与陶土朱红视觉体系）
+- **样式方案**：Tailwind CSS v4
 - **3D 渲染**：Three.js（程序化几何体、动态 Canvas 切线贴图、物理质感 PBR 材质、软件 WebGL 帧率自适应）
-- **音频引擎**：原生 Web Audio API（实时合成多质感切菜声、点火声、动态火力滋啦循环、倒料水花、颠勺呼啸及五声音阶成菜音效）
+- **音频引擎**：原生 Web Audio API（多质感切菜声、点火声、动态火力滋啦循环、倒料水花、颠勺呼啸及五声音阶成菜音效）
 - **图标与动效**：Lucide React + Motion
 
 ### 目录结构
 
 ```text
+├── .github/workflows/deploy.yml    # GitHub Pages 自动构建与部署工作流
+├── docs/screenshots/               # 游戏内实机运行效果图
 ├── index.html                      # 入口 HTML 与思源宋体/黑体字体加载
-├── metadata.json                   # 应用元信息
+├── vite.config.ts                  # Vite 构建配置（已适配 GitHub Pages 相对路径）
 ├── src/
 │   ├── main.tsx                    # React 渲染入口
 │   ├── index.css                   # 全局样式与自定义动效
