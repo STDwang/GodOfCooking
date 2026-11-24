@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --surface-card: #FFFBF6;
+  --surface-subtle: #F5EDE3;
+  --surface-elevated: #FFFFFF;
+  --ink-primary: #2A1E17;
+  --ink-secondary: #5C493E;
+  --ink-muted: #847063;
+  --accent-primary: #C84B1D;
+  --accent-primary-hover: #AF3E15;
+  --accent-warm: #D9822B;
+  --state-ideal: #2B7A4B;
+  --state-danger: #C53030;
+  --hud-dark: rgba(24, 18, 14, 0.76);
+  --hud-border: rgba(255, 245, 235, 0.14);
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-serif-cn {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes floatUpFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.92);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -6px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -34px) scale(1.03);
+  }
+}
+
+.animate-float-pop {
+  animation: floatUpFade 680ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom subtle scrollbars for recipe & encyclopedia drawers */
+.culinary-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.culinary-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.culinary-scroll::-webkit-scrollbar-thumb {
+  background: rgba(122, 102, 90, 0.28);
+  border-radius: 999px;
+}
+
+.culinary-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(122, 102, 90, 0.45);
+}

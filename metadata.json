@@ -1,0 +1,6 @@
+{
+  "name": "我是厨神",
+  "description": "沉浸式3D中华烹饪网页游戏，模拟真实切菜刀工、掌勺火候控制与精准调味流程，内置经典国民中餐菜谱与烹饪百科。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
